@@ -1,12 +1,14 @@
-# pjj_angular_2023
+# PJJ Angular 2023
 
 
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Repository ini merupakan repo pelatihan Angular 2023, digunakan untuk:
+- Sumber referensi (bahan ajar)
+- Kode yang dimenstrasikan oleh pengajar
+- Penugasan
+- Pengumpulan dan aktifitas peserta
 
 ## Add your files
 

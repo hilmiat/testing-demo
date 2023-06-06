@@ -1,5 +1,10 @@
 var count;
 // count = 'a';
 count = 3;
-count = "w";
+// count = "w";
 count = 3.5;
+var x = 3.78;
+// x = 'a';
+var a = '123';
+var c = count.endsWith('3');
+console.log(c);

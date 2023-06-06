@@ -11,6 +11,8 @@ import { Component, Input } from "@angular/core";
         <img src="{{imageUrl}}" on-click="dipencet(2)" />
     `
 })
+
+
 export class CobaKomponen {
     //input
     @Input()

@@ -44,3 +44,4 @@ let cetakPerson = (p: Person): void => {
 }
 let p1 = new Person("andi");
 cetakPerson(p1);
+//test update from remote

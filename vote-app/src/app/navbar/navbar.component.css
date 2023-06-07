@@ -1,0 +1,13 @@
+.navbar{
+    background-color: #e3f2fd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    margin-bottom: 0;
+    min-height: 50px;
+    padding: 0;
+    /* position: fixed; */
+    /* top: 0; */
+    width: 100%;
+    z-index: 1;
+    color: forestgreen;
+}

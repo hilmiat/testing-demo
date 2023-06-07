@@ -1,0 +1,8 @@
+<div>
+    <img [src]="employeedata.photoUrl" [alt]="employeedata.name" />
+    <div>
+        {{employeedata.name}}({{employeedata.age}})
+    </div>
+    <button
+    (click)="voteForEmployee(employeedata.id)">{{tulisanVote}}</button>
+</div>

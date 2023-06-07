@@ -1,9 +1,12 @@
 <h2>Voting employee of the month</h2>
 <p>You vote for: {{hasilVote}}</p>
 <div class="employee-list">
-    <app-employee [employeedata]=employeesdata[0] (vote)="bacaVote($event)"></app-employee>
-    <app-employee [employeedata]=employeesdata[1] (vote)="bacaVote($event)"></app-employee>
-    <app-employee [employeedata]=employeesdata[2] (vote)="bacaVote($event)"></app-employee>
+    <app-employee [employeedata]=employeesdata[0] (vote)="bacaVote($event)" 
+        [disabled]=disabled ></app-employee>
+    <app-employee [employeedata]=employeesdata[1] (vote)="bacaVote($event)"
+        [disabled]=disabled></app-employee>
+    <app-employee [employeedata]=employeesdata[2] (vote)="bacaVote($event)"
+        [disabled]=disabled></app-employee>
 </div>
 
 

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeesComponent implements OnInit {
   hasilVote: string = '';
   voting: number[] = [];
-
+  disabled:boolean = this.voting.length >= 2;
   bacaVote($event: number) {
     //jika negatif, maka hapus dari array
     if ($event < 0) {
@@ -29,6 +29,8 @@ export class EmployeesComponent implements OnInit {
       return e.name;
     }
     ).join(', ');
+    this.disabled = this.voting.length >= 2;
+    
   }
   employeesdata = [
     {

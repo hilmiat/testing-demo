@@ -4,5 +4,6 @@
         {{employeedata.name}}({{employeedata.age}})
     </div>
     <button
-    (click)="voteForEmployee(employeedata.id)">{{tulisanVote}}</button>
+        [disabled]=disabled&&!isVoted
+        (click)="voteForEmployee(employeedata.id)">{{tulisanVote}}</button>
 </div>

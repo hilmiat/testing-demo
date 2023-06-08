@@ -1,12 +1,33 @@
 <h2>Voting employee of the month</h2>
-<p>You vote for: {{hasilVote}}</p>
-<div class="employee-list">
+
+<input type="text" appInputFormat format="lowercase" appInputFormat2/>
+<input type="button" appInputFormat value="test"/>
+
+<p *ngIf="voting.length>0">You vote for: {{hasilVote}}</p>
+<p *appKecuali="voting.length>0"> BELUM ADA VOTE {{hasilVote}}</p>
+
+<!-- <div class="employee-list">
     <app-employee [employeedata]=employeesdata[0] (vote)="bacaVote($event)" 
         [disabled]=disabled ></app-employee>
     <app-employee [employeedata]=employeesdata[1] (vote)="bacaVote($event)"
         [disabled]=disabled></app-employee>
     <app-employee [employeedata]=employeesdata[2] (vote)="bacaVote($event)"
         [disabled]=disabled></app-employee>
+</div> -->
+<div [ngSwitch]="voting.length">
+    <p *ngSwitchCase="0">No vote yet</p>
+    <p *ngSwitchCase="1">One more vote</p>
+    <p *ngSwitchCase="2">Good Job...</p>
+    <p *ngSwitchDefault>Invalid vote</p>
 </div>
 
 
+
+<div class="employee-list">
+    <app-employee 
+        *ngFor="let employee of employeesdata" 
+        [employeedata]=employee 
+        (vote)="bacaVote($event)"
+        [disabled]=disabled>
+    </app-employee>
+</div>

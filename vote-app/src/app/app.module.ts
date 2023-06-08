@@ -6,6 +6,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
+import { InputFormatDirective } from './input-format.directive';
+import { InputFormat2Directive } from './input-format2.directive';
+import { KecualiDirective } from './kecuali.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { EmployeeComponent } from './employees/employee/employee.component';
     NavbarComponent,
     SidebarComponent,
     EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    InputFormatDirective,
+    InputFormat2Directive,
+    KecualiDirective
   ],
   imports: [
     BrowserModule

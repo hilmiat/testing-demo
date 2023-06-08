@@ -4,6 +4,13 @@
         {{employeedata.name}}({{employeedata.age}})
     </div>
     <button
+        [ngStyle]="{
+            color: isVoted ? 'white' : 'black'
+        }"
+        [ngClass]="{
+            voted: isVoted,
+            notvoted: !isVoted
+        }"
         [disabled]=disabled&&!isVoted
         (click)="voteForEmployee(employeedata.id)">{{tulisanVote}}</button>
 </div>

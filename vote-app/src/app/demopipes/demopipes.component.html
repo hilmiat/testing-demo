@@ -1,0 +1,57 @@
+<p>demo pipes</p>
+No format: {{angka}}
+<br/>
+Currency format: {{angka | currency:'Rp. ':true}}
+<br/>
+Decimal format: {{angka | number}}
+<br/>
+Decimal format '2.2-2' : {{angka | number:'2.2-2'}}
+<br/>
+Decimal format '4.5-5' : {{angka | number:'4.5-5'}}
+<br/>
+<!-- Decimal format '4.3' : {{angka | number:'4.3':'fr'}} -->
+Format tanggal
+<br/>
+No format: {{tanggal | date}}
+<br/>
+'dd/MM/yyyy':{{tanggal | date:'dd/MM/yyyy'}}
+<br/>
+'dd/MM/yyyy hh:mm:ss':{{tanggal | date:'dd/MM/yyyy hh:mm:ss'}}
+<br/>
+Fulldate: {{tanggal | date:'fullDate'}}
+<br/>
+Shortdate: {{tanggal | date:'shortDate'}}
+<br/>
+Short time: {{tanggal | date:'shortTime'}}
+<br/>
+<!-- locale: {{tanggal | date:'fullDate':'':'id'}} -->
+<hr/>
+<p> demo slice data ngFor</p>
+<ul>
+    <li *ngFor="let item of dataSiswa">{{item.nama}}</li>
+</ul>
+<ul>
+  <li *ngFor="let item of dataSiswa | slice:1:-1">{{item.nama}}</li>
+</ul>
+<hr/>
+<p>demo custom pipe</p>
+{{stringPanjang | summary:20:' [read more]'}}
+<br/>
+{{stringPanjang | summary}}
+<hr/>
+<h3>Demo Latihan</h3>
+<p>demo title case</p>
+<input type="text" [(ngModel)]="title" />
+<p>{{title | titlecase}}</p>
+<p>{{title | capitalize}}</p>
+
+<p>Demo tanggal lahir - usia</p>
+<input type="date" [(ngModel)]="tanggalLahir" />
+<p>{{tanggalLahir}} - USIA: {{tanggalLahir | usia}} th</p>
+
+<p>Demo filter data siswa</p>
+<input type="text" [(ngModel)]="namacari" />
+<p>tampilkan siswa dicari '{{namacari}}'</p>
+<ul>
+    <li *ngFor="let item of dataSiswa | cari:namacari">{{item.nama}}</li>
+</ul>

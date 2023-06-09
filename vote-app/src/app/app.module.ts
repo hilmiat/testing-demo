@@ -11,6 +11,11 @@ import { InputFormat2Directive } from './input-format2.directive';
 import { KecualiDirective } from './kecuali.directive';
 import { TestProjectionComponent } from './test-projection/test-projection.component';
 import { FormsModule } from '@angular/forms';
+import { DemopipesComponent } from './demopipes/demopipes.component';
+import { SummaryPipe } from './summary.pipe';
+import { CapitalizePipe } from './capitalize.pipe';
+import { UsiaPipe } from './usia.pipe';
+import { CariPipe } from './cari.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { FormsModule } from '@angular/forms';
     InputFormatDirective,
     InputFormat2Directive,
     KecualiDirective,
-    TestProjectionComponent
+    TestProjectionComponent,
+    DemopipesComponent,
+    SummaryPipe,
+    CapitalizePipe,
+    UsiaPipe,
+    CariPipe
   ],
   imports: [
     BrowserModule,

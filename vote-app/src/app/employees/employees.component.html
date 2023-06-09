@@ -1,9 +1,17 @@
 <h2>Voting employee of the month</h2>
 
-<input type="text" appInputFormat format="lowercase" appInputFormat2/>
+<input [(ngModel)]="emplcari" type="text" appInputFormat format="lowercase" appInputFormat2/>
+
+<p>Anda mencari: {{emplcari}}</p>
 <input type="button" appInputFormat value="test"/>
 
 <p *ngIf="voting.length>0">You vote for: {{hasilVote}}</p>
+<ng-template [ngIf]="voting.length>0">
+    <p>You vote for: {{hasilVote}}</p>
+    <p>Element kedua</p>
+</ng-template>
+
+
 <p *appKecuali="voting.length>0"> BELUM ADA VOTE {{hasilVote}}</p>
 
 <!-- <div class="employee-list">
@@ -22,12 +30,41 @@
 </div>
 
 
+<button (click)="addEmployee()">Test add employee</button>
+<button (click)="updateEmployee(1)">Update employee</button>
 
 <div class="employee-list">
     <app-employee 
-        *ngFor="let employee of employeesdata" 
+        *ngFor="let employee of employeesdata;trackBy:trackByEmpId" 
         [employeedata]=employee 
         (vote)="bacaVote($event)"
         [disabled]=disabled>
     </app-employee>
 </div>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Employee Name</th>
+            <th>Employee Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of getEmployeeData(); let no = index">
+            <td>{{no+1}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.age}}</td>
+        </tr>
+</table>
+
+<hr/>
+<h2>Test content projection</h2>
+<app-test-projection>
+    <div class="footer">ini isi dari elemen dengan class footer</div>
+    <p title class="footer">ini juga isi dari elemen dengan class footer</p>
+
+    <div title>ini isi dari elemen dengan attribute title</div>
+    <p>ini isi dari tag paragraf (p)</p>
+    
+</app-test-projection>

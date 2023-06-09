@@ -9,6 +9,8 @@ import { EmployeeComponent } from './employees/employee/employee.component';
 import { InputFormatDirective } from './input-format.directive';
 import { InputFormat2Directive } from './input-format2.directive';
 import { KecualiDirective } from './kecuali.directive';
+import { TestProjectionComponent } from './test-projection/test-projection.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { KecualiDirective } from './kecuali.directive';
     EmployeeComponent,
     InputFormatDirective,
     InputFormat2Directive,
-    KecualiDirective
+    KecualiDirective,
+    TestProjectionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

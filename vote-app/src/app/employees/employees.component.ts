@@ -1,11 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
-export class EmployeesComponent implements OnInit {
+export class EmployeesComponent implements OnInit,OnChanges {
+  emplcari: any;
+  trackByEmpId(index: number, employee: any): number {
+    return employee.id;
+  }
+  updateEmployee(arg0: number) {
+    //update employeesdate berdasarkan id
+    this.employeesdata = this.employeesdata.map(
+      (e) => {
+        if (e.id === arg0) {
+          e.name = e.name + ' Updated';
+        }
+        return e;
+      }
+    );
+  }
+
+  addEmployee() {
+    //tambahkan data baru ke array employeesdata
+    this.employeesdata.push(
+      {
+        name: 'New Employee',
+        age: 25,
+        id: this.employeesdata.length + 1,
+        photoUrl:'https://angular.io/assets/images/logos/angular/angular.png'
+      }
+    );
+  }
+
   hasilVote: string = '';
   voting: number[] = [];
   disabled:boolean = this.voting.length >= 2;
@@ -55,7 +83,20 @@ export class EmployeesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('CHANGE>>>');
   }
 
+  ngOnInit(): void {
+  }
+  getEmployeeData(){
+    //return data employeesdata filter berdasarkan emplcari
+    if (this.emplcari) {
+      return this.employeesdata.filter((e) => {
+        return e.name.toLowerCase().includes(this.emplcari.toLowerCase());
+      });
+    }else{
+      return this.employeesdata;
+    }
+  }
 }

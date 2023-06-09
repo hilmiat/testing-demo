@@ -47,9 +47,10 @@ Short time: {{tanggal | date:'shortTime'}}
 
 <p>Demo tanggal lahir - usia</p>
 <input type="date" [(ngModel)]="tanggalLahir" />
-<p>{{tanggalLahir}} - USIA: {{tanggalLahir | usia}} th</p>
+<p>{{tanggalLahir}} - USIA: {{tanggalLahir | usia}}</p>
 
 <p>Demo filter data siswa</p>
+<button (click)="tambah()">Tambah data</button>
 <input type="text" [(ngModel)]="namacari" />
 <p>tampilkan siswa dicari '{{namacari}}'</p>
 <ul>

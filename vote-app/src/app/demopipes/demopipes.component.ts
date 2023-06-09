@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demopipes.component.css']
 })
 export class DemopipesComponent implements OnInit {
+  tambah() {
+    this.dataSiswa.push({
+      nama: 'Fafa',
+      kelas: '6F'
+    });
+  }
   stringPanjang = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.';
   angka = 2.718281828459045;
   tanggal = new Date();

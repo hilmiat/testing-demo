@@ -10,7 +10,11 @@ export class UsiaPipe implements PipeTransform {
     let tanggalLahir = new Date(value as string);
     let tahunLahir = tanggalLahir.getFullYear();
     let tahunSekarang = new Date().getFullYear();
-    return tahunSekarang - tahunLahir;
+    //return usia sampai bulan dan hari
+    return tahunSekarang - tahunLahir + ' tahun ' 
+      + (new Date().getMonth() - tanggalLahir.getMonth()) + ' bulan ' 
+      + (new Date().getDate() - tanggalLahir.getDate()) + ' hari';
+    // return tahunSekarang - tahunLahir;
   }
 
 }

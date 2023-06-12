@@ -1,1 +1,11 @@
-<p>user-detail works!</p>
+<h3>Menampilkan data user dengan id:{{idUser}}</h3>
+{{getDetailUser()}}
+<hr/>
+<div>User lainnya</div>
+<ul>
+    <li *ngFor="let user of dataUser">
+        <a [routerLink]="['/users', user.id]">
+        {{ user.nama }}
+        </a>
+    </li>
+</ul>

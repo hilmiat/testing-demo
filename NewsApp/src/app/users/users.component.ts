@@ -26,6 +26,10 @@ export class UsersComponent implements OnInit {
     this.route.fragment.subscribe(parameter=>{
       console.log(parameter);
     });
+
+    
+
+
   }
 
 }

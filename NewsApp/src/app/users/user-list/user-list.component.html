@@ -3,5 +3,7 @@
         <a [routerLink]="['/users', user.id]">
         {{ user.nama }}
         </a>
+        <button (click)="deleteUser(user.id)">Delete</button>
+        <a [routerLink]="['/users', user.id, 'edit']">Edit</a>
     </li>
 </ul>

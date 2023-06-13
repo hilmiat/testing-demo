@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsersApiService } from './users-api.service';
 
 @Component({
   selector: 'app-users',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   username: string | null = '';
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private userApi: UsersApiService, private router:Router) { }
 
   ngOnInit(): void {
     // this.username = this.route.snapshot.paramMap.get('username');
@@ -26,10 +27,18 @@ export class UsersComponent implements OnInit {
     this.route.fragment.subscribe(parameter=>{
       console.log(parameter);
     });
-
-    
-
-
   }
 
+  //test post data user
+  buatUser(){
+    // let data = {
+    //   name: 'Fulan',
+    //   username: 'fulan',
+    //   email: 'email@mail.com'
+    // };
+    // this.userApi.createUser(data).subscribe(data=>{
+    //   console.log(data);
+    // });
+    this.router.navigate(['users','create']);
+  }
 }

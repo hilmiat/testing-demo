@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../users.service';
+import { UsersApiService } from '../users-api.service';
+import { User } from '../user.interface';
 
 @Component({
   selector: 'app-user-list',
@@ -6,14 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  dataUser = [
-    {id: 1, nama: 'Rizki', alamat: 'Jl. Raya Bogor'},
-    {id: 2, nama: 'Rizka', alamat: 'Jl. Raya Bogor'},
-    {id: 3, nama: 'Rizku', alamat: 'Jl. Raya Bogor'},
-  ];
-  constructor() { }
+  dataUser:User[] = [];
+  //untuk menggunakan service, kita harus inject service tersebut ke dalam constructor
+  constructor(private serviceUser: UsersService, private userApi: UsersApiService) { }
 
   ngOnInit(): void {
+    //minta data user ke service
+    //isi ke property dataUser
+    // this.dataUser = this.serviceUser.getAllUser();
+    this.userApi.getAllUser().subscribe(data=>{
+      this.dataUser = data.map(user=>{
+        return {
+          id: user.id,
+          nama: user.name,
+          alamat: user.address.street
+        }
+      });
+    });
   }
 
+  deleteUser(id:number){
+    // this.serviceUser.deleteUser(id);
+    this.userApi.deleteUser(id).subscribe(response=>{
+      console.log(response);
+    });
+  }
 }

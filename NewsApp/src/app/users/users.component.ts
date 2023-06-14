@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersApiService } from './users-api.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -41,4 +42,19 @@ export class UsersComponent implements OnInit {
     // });
     this.router.navigate(['users','create']);
   }
+
+  testObservable(){
+    const myObservable = of('satu','dua','tiga');
+
+    myObservable.subscribe(data=>{
+      console.log(data);
+    });
+
+    myObservable.subscribe({
+      next: data=>{console.log(data)},
+      error: err=>{console.log(err)},
+      complete: ()=>{console.log('complete')}
+    });
+  }
+
 }

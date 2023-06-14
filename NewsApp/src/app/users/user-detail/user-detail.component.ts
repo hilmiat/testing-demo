@@ -6,7 +6,8 @@ import { UsersApiService } from '../users-api.service';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.css'],
+
 })
 export class UserDetailComponent implements OnInit {
   idUser: string | null = '';
@@ -28,17 +29,17 @@ export class UserDetailComponent implements OnInit {
   }
   getDetailUser(){
     let idDicari = parseInt(this.idUser || '');
-    //get user by id
-    // let data = this.serviceUser.getUserById(idDicari);
-    // if(!data){
-    //   return 'User tidak ditemukan';
-    // }else{
-    //   return data.nama;
-    // }
-    this.userApi.getUserById(idDicari).subscribe(data=>{
-      // console.log('DATA DETAIL USER>>',data);
-      this.detailUser = data.name;
-    });
+    // get user by id
+    let data = this.serviceUser.getUserById(idDicari);
+    if(!data){
+      this.detailUser =  'User tidak ditemukan';
+    }else{
+      this.detailUser = data.nama;
+    }
+    // this.userApi.getUserById(idDicari).subscribe(data=>{
+    //   // console.log('DATA DETAIL USER>>',data);
+    //   this.detailUser = data.name;
+    // });
   }
 
 }

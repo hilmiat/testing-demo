@@ -1,7 +1,7 @@
 <ul>
-    <li *ngFor="let user of dataUser">
+    <li *ngFor="let user of dataUser | async">
         <a [routerLink]="['/users', user.id]">
-        {{ user.nama }}
+        {{ user }}
         </a>
         <button (click)="deleteUser(user.id)">Delete</button>
         <a [routerLink]="['/users', user.id, 'edit']">Edit</a>

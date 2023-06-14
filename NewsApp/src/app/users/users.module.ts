@@ -9,6 +9,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UsersComponent } from './users.component';
 import { FormsModule } from '@angular/forms';
+import { UsersService } from './users.service';
+import { CekLevelGuard } from './cek-level';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     UsersRoutingModule
-  ]
+  ],
+  providers:[UsersService,CekLevelGuard]
 })
 export class UsersModule { }

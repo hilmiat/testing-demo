@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './user.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
   dataUser:User[] = [
     {id: 1, nama: 'Rizki', alamat: 'Jl. Raya Bogor'},
@@ -37,5 +35,7 @@ export class UsersService {
     return this.dataUser.filter(user => user.nama.toLowerCase().includes(nama.toLowerCase()));
   }
 
-  constructor() { }
+  constructor() { 
+    console.log('UsersService dijalankan');
+  }
 }

@@ -1,9 +1,35 @@
-<ul>
-    <li *ngFor="let user of dataUser | async">
-        <a [routerLink]="['/users', user.id]">
-        {{ user }}
-        </a>
-        <button (click)="deleteUser(user.id)">Delete</button>
-        <a [routerLink]="['/users', user.id, 'edit']">Edit</a>
-    </li>
-</ul>
+<div class="card">
+    <div class="card-header">
+        <h3><i class="bi bi-people"></i>Users</h3>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-primary" routerLink="/users/create">Create User <i class="bi bi-pencil"></i> </a>
+   
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of dataUser | async | slice: (page-1) * pageSize : page * pageSize">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="deleteUser(user.id)">Delete</button>
+                    <a class="btn btn-primary" [routerLink]="['/users', user.id, 'edit']">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="(dataUser | async)?.length || 0">
+    </ngb-pagination>
+    </div>
+</div>

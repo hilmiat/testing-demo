@@ -11,6 +11,7 @@ import { UsersComponent } from './users.component';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { CekLevelGuard } from './cek-level';
+import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { CekLevelGuard } from './cek-level';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    NgbAlertModule,
+    NgbPaginationModule
   ],
   providers:[UsersService,CekLevelGuard]
 })

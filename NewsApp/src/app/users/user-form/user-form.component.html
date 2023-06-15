@@ -1,5 +1,32 @@
-<input type="text" [(ngModel)]="user.name" name="name" placeholder="Name" required/>
-<input type="email" [(ngModel)]="user.email" name="email" placeholder="Email" required/>
-<input type="text" [(ngModel)]="user.phone" name="phone" placeholder="Phone" required/>
-<button *ngIf="!isEdit" (click)="saveUser()">Save</button>
-<button *ngIf="isEdit" (click)="updateUser()">UPDATE</button>
+<div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Name" 
+        [(ngModel)]="user.name" 
+        id="name"
+        name="name" placeholder="Name" required/>
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input 
+        type="email" 
+        class="form-control" 
+        placeholder="email" 
+        [(ngModel)]="user.email" 
+        id="email"
+        name="email" placeholder="email@mail.com" required/>
+</div>
+<div class="mb-3">`
+    <label for="phone" class="form-label">Phone</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        placeholder="phone" 
+        [(ngModel)]="user.phone" 
+        id="phone"
+        name="phone" placeholder="+62 ...." required/>
+</div>
+<button class="btn btn-success" *ngIf="!isEdit" (click)="saveUser()">Save</button>
+<button class="btn btn-primary" *ngIf="isEdit" (click)="updateUser()">UPDATE</button>

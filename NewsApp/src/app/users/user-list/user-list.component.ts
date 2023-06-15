@@ -11,7 +11,10 @@ import { Observable } from 'rxjs';
 
 })
 export class UserListComponent implements OnInit {
-  dataUser:Observable<User[]> | undefined;
+  dataUser:Observable<any[]> | undefined;
+  page = 1;
+  pageSize = 4;
+  // collectionSize = 0;
   //untuk menggunakan service, kita harus inject service tersebut ke dalam constructor
   constructor(private serviceUser: UsersService, private userApi: UsersApiService) { }
 

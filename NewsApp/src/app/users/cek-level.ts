@@ -5,6 +5,6 @@ import { ActivatedRouteSnapshot, CanActivate } from "@angular/router";
 export class CekLevelGuard implements CanActivate {
     canActivate(routes: ActivatedRouteSnapshot) {
         console.log(routes);
-        return false;
+        return true;
     }
 }

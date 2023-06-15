@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersApiService } from '../users-api.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UsersService } from '../users.service';
 import { switchMap } from 'rxjs';
 
@@ -13,7 +13,12 @@ import { switchMap } from 'rxjs';
 export class UserFormComponent implements OnInit {
   user:{name:string,phone:string,email:string,id:number} = {id:0,name:'',phone:'',email:''};
   isEdit = false;
-  constructor(private userApi:UsersApiService, private route:ActivatedRoute, private userService: UsersService) { }
+  constructor(
+    private userApi:UsersApiService, 
+    private route:ActivatedRoute, 
+    private userService: UsersService,
+    private router: Router
+    ) { }
   ngOnInit(): void {
     //cek apakah ada parameter id di url
     // this.route.paramMap.subscribe(
@@ -54,6 +59,7 @@ export class UserFormComponent implements OnInit {
       nama: this.user.name,
       alamat: this.user.email
     });
+    this.kembaliKeListUser();
     // this.userApi.createUser(this.user).subscribe(
     //   (response:any) => {
     //     console.log(response);
@@ -64,8 +70,12 @@ export class UserFormComponent implements OnInit {
     this.userApi.updateUser(this.user.id,this.user).subscribe(
       (response:any) => {
         console.log(response);
+        this.kembaliKeListUser();
       }
     );
+  }
+  kembaliKeListUser() {
+    this.router.navigate(['/users']);
   }
 
 }

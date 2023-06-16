@@ -5,4 +5,22 @@
 </p>
 <!-- <button (click)="testObservable()">Tes Observable</button>
 <button (click)="buatUser()">Buat User</button> -->
+<!-- <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+<button
+	type="button"
+	class="btn btn-outline-secondary me-2"
+	placement="end"
+	ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+	popoverTitle="Popover on right"
+>
+	Popover on right
+</button> -->
+<ngb-toast 
+	*ngIf="toastMessage!=''" 
+	[autohide]="true"
+	[delay]="3000" 
+	(hidden)="toastMessage=''"> 
+		{{toastMessage}} 
+	</ngb-toast>
+
 <router-outlet></router-outlet>

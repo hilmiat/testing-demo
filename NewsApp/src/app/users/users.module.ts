@@ -8,10 +8,11 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UsersComponent } from './users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { CekLevelGuard } from './cek-level';
-import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbPaginationModule, NgbPopoverModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -24,11 +25,15 @@ import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     UsersRoutingModule,
     NgbAlertModule,
-    NgbPaginationModule
+    NgbPaginationModule,
+    NgbToastModule,
+    NgbPopoverModule,
+    SweetAlert2Module.forRoot()
   ],
-  providers:[UsersService,CekLevelGuard]
+  providers:[UsersService,CekLevelGuard,SweetAlert2LoaderService]
 })
 export class UsersModule { }

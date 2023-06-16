@@ -9,6 +9,7 @@ import { of } from 'rxjs';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
+  toastMessage: string = '';
   username: string | null = '';
   constructor(private route: ActivatedRoute, private userApi: UsersApiService, private router:Router) { }
 
@@ -16,6 +17,7 @@ export class UsersComponent implements OnInit {
     // this.username = this.route.snapshot.paramMap.get('username');
     this.route.paramMap.subscribe(parameter=>{
       this.username = parameter.get('username');
+      this.toastMessage = parameter.get('pesan') || '';
     });
     //membaca parameter dari url
     // this.route.queryParamMap.subscribe(parameter=>{

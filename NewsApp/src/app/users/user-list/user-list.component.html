@@ -5,11 +5,17 @@
     <div class="card-body">
         <a class="btn btn-primary" routerLink="/users/create">Create User <i class="bi bi-pencil"></i> </a>
    
+    <form>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search" [formControl]="searchText" name="searchText">
+        </div>
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th sortable="name" (sort)="onSort($event)">Name</th>
                 <th>Email</th>
                 <th>Actions</th>
             </tr>
@@ -20,7 +26,11 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <button class="btn btn-warning" (click)="deleteUser(user.id)">Delete</button>
+                    <button 
+                        [swal]="{title:'Apakah anda ingin menghapus user ini?',icon: 'warning', showCancelButton: true, confirmButtonText: 'Yes, delete it!', cancelButtonText: 'No, keep it.'}"
+                        class="btn btn-warning" 
+                        (confirm)="deleteUser(user.id)"
+                    >Delete</button>
                     <a class="btn btn-primary" [routerLink]="['/users', user.id, 'edit']">Edit</a>
                 </td>
             </tr>

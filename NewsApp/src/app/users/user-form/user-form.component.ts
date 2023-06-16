@@ -11,6 +11,7 @@ import { switchMap } from 'rxjs';
 
 })
 export class UserFormComponent implements OnInit {
+  isSubmitting = false;
   user:{name:string,phone:string,email:string,id:number} = {id:0,name:'',phone:'',email:''};
   isEdit = false;
   constructor(
@@ -54,12 +55,13 @@ export class UserFormComponent implements OnInit {
     
   }
   saveUser() {
+    this.isSubmitting = true;
     this.userService.addUser({
       id: this.user.id,
       nama: this.user.name,
       alamat: this.user.email
     });
-    this.kembaliKeListUser();
+    this.kembaliKeListUser('Sukses tambah user');
     // this.userApi.createUser(this.user).subscribe(
     //   (response:any) => {
     //     console.log(response);
@@ -67,15 +69,16 @@ export class UserFormComponent implements OnInit {
     // );
   }
   updateUser() {
+    this.isSubmitting = true;
     this.userApi.updateUser(this.user.id,this.user).subscribe(
       (response:any) => {
         console.log(response);
-        this.kembaliKeListUser();
+        this.kembaliKeListUser('Sukses update user '+this.user.name);
       }
     );
   }
-  kembaliKeListUser() {
-    this.router.navigate(['/users']);
+  kembaliKeListUser(message:string = '') {
+    this.router.navigate(['/users',{pesan:message}]);
   }
 
 }

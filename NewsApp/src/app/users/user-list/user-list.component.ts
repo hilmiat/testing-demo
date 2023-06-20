@@ -1,8 +1,7 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { UsersApiService } from '../users-api.service';
-import { User } from '../user.interface';
-import { Observable, map, startWith } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 @Component({

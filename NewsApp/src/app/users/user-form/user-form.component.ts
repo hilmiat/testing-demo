@@ -37,7 +37,7 @@ export class UserFormComponent implements OnInit {
     // );
     this.route.params.pipe(
       switchMap((params: Params) => {
-        let id = params['id'];
+        const id = params['id'];
         if(id){
           this.isEdit = true;
           return this.userApi.getUserById(parseInt(id));
@@ -77,7 +77,7 @@ export class UserFormComponent implements OnInit {
       }
     );
   }
-  kembaliKeListUser(message:string = '') {
+  kembaliKeListUser(message = '') {
     this.router.navigate(['/users',{pesan:message}]);
   }
 

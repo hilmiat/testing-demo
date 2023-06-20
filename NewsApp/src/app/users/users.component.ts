@@ -9,7 +9,7 @@ import { of } from 'rxjs';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  toastMessage: string = '';
+  toastMessage = '';
   username: string | null = '';
   constructor(private route: ActivatedRoute, private userApi: UsersApiService, private router:Router) { }
 

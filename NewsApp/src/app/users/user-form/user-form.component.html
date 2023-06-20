@@ -28,5 +28,5 @@
         id="phone"
         name="phone" placeholder="+62 ...." required/>
 </div>
-<button class="btn btn-success" *ngIf="!isEdit" (click)="saveUser()" [disabled]="isSubmitting">Save</button>
-<button class="btn btn-primary" *ngIf="isEdit" (click)="updateUser()" [disabled]="isSubmitting">UPDATE</button>
+<button id="save" class="btn btn-success" *ngIf="!isEdit" (click)="saveUser()" [disabled]="isSubmitting">Save</button>
+<button id="update" class="btn btn-primary" *ngIf="isEdit" (click)="updateUser()" [disabled]="isSubmitting">UPDATE</button>

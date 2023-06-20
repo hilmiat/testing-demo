@@ -11,13 +11,13 @@ import { UsersApiService } from '../users-api.service';
 })
 export class UserDetailComponent implements OnInit {
   idUser: string | null = '';
-  detailUser: any;
+  detailUser = '';
   //tambahkan DI untuk service user
   constructor(private router:ActivatedRoute, private serviceUser: UsersService, private userApi:UsersApiService ) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(parameter=>{
-      let id = parameter.get('id');
+      const id = parameter.get('id');
       console.log(id);
       this.idUser = id;
       this.getDetailUser();
@@ -28,9 +28,9 @@ export class UserDetailComponent implements OnInit {
     // this.idUser = this.router.snapshot.paramMap.get('id');
   }
   getDetailUser(){
-    let idDicari = parseInt(this.idUser || '');
+    const idDicari = parseInt(this.idUser || '');
     // get user by id
-    let data = this.serviceUser.getUserById(idDicari);
+    const data = this.serviceUser.getUserById(idDicari);
     if(!data){
       this.detailUser =  'User tidak ditemukan';
     }else{
